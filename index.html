@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusive Cash Buyer Properties</title>
+    
+    <!-- Favicon added here -->
+    <link rel="icon" href="favicon.png" type="image/png">
+
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark);
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .tagline {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .filters {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        select, input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+        .properties {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        .property-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .property-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        .property-details {
+            padding: 20px;
+        }
+        .property-address {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .property-price {
+            color: var(--accent);
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .property-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .stat {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+        .stat i {
+            margin-right: 5px;
+            color: var(--secondary);
+        }
+        .property-description {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .deal-highlight {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        .highlight-value {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            margin-top: 50px;
+        }
+        .form-title {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+            color: var(--primary);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        .disclaimer {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Exclusive Cash Buyer Properties</div>
+        <div class="tagline">Wholesale deals available to qualified cash buyers only</div>
+    </header>
+
+    <div class="container">
+        <div class="filters">
+            <div class="filter-group">
+                <label for="location">Location</label>
+                <select id="location">
+                    <option value="">All Areas</option>
+                    <option value="north">North County</option>
+                    <option value="south">South County</option>
+                    <option value="east">East County</option>
+                    <option value="west">West County</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="price-range">Price Range</label>
+                <select id="price-range">
+                    <option value="">Any Price</option>
+                    <option value="0-100000">Under $100k</option>
+                    <option value="100000-200000">$100k - $200k</option>
+                    <option value="200000-300000">$200k - $300k</option>
+                    <option value="300000+">$300k+</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="property-type">Property Type</label>
+                <select id="property-type">
+                    <option value="">All Types</option>
+                    <option value="single-family">Single Family</option>
+                    <option value="multi-family">Multi-Family</option>
+                    <option value="condo">Condo</option>
+                    <option value="land">Land</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="arv">% Below ARV</label>
+                <select id="arv">
+                    <option value="">Any</option>
+                    <option value="30+">30%+ Below ARV</option>
+                    <option value="20-30">20-30% Below ARV</option>
+                    <option value="10-20">10-20% Below ARV</option>
+                </select>
+            </div>
+            <button class="btn">Search Properties</button>
+        </div>
+
+        <div class="properties">
+            <!-- Property 1 -->
+            <div class="property-card">
+                <div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="property-details">
+                    <div class="property-address">123 Main St, Anytown, CA 92101</div>
+                    <div class="property-price">$185,000</div>
+                    
+                    <div class="deal-highlight">
+                        <div><span class="highlight-value">32% below ARV</span> ($275,000)</div>
+                        <div><span class="highlight-value">28% below Zestimate</span> ($257,000)</div>
+                    </div>
+                    
+                    <div class="property-stats">
+                        <div class="stat"><i class="fas fa-bed"></i> 3 beds</div>
+                        <div class="stat"><i class="fas fa-bath"></i> 2 baths</div>
+                        <div class="stat"><i class="fas fa-ruler-combined"></i> 1,450 sqft</div>
+                    </div>
+                    
+                    <div class="property-description">
+                        Great fixer-upper opportunity in desirable neighborhood. Property needs cosmetic updates but has good bones. Sold as-is cash only.
+                    </div>
+                    
+                    <button class="btn" style="width: 100%;">Express Interest</button>
+                </div>
+            </div>
+
+            <!-- Property 2 -->
+            <div class="property-card">
+                <div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="property-details">
+                    <div class="property-address">456 Oak Ave, Somewhere, CA 92105</div>
+                    <div class="property-price">$240,000</div>
+                    
+                    <div class="deal-highlight">
+                        <div><span class="highlight-value">35% below ARV</span> ($370,000)</div>
+                        <div><span class="highlight-value">31% below Zestimate</span> ($350,000)</div>
+                    </div>
+                    
+                    <div class="property-stats">
+                        <div class="stat"><i class="fas fa-bed"></i> 4 beds</div>
+                        <div class="stat"><i class="fas fa-bath"></i> 2.5 baths</div>
+                        <div class="stat"><i class="fas fa-ruler-combined"></i> 1,850 sqft</div>
+                    </div>
+                    
+                    <div class="property-description">
+                        Motivated seller! Duplex with both units occupied. Great cash flow potential. Some repairs needed. Excellent location near downtown.
+                    </div>
+                    
+                    <button class="btn" style="width: 100%;">Express Interest</button>
+                </div>
+            </div>
+
+            <!-- Property 3 -->
+            <div class="property-card">
+                <div class="property-image" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="property-details">
+                    <div class="property-address">789 Elm Blvd, Anywhere, CA 92115</div>
+                    <div class="property-price">$320,000</div>
+                    
+                    <div class="deal-highlight">
+                        <div><span class="highlight-value">28% below ARV</span> ($445,000)</div>
+                        <div><span class="highlight-value">25% below Zestimate</span> ($425,000)</div>
+                    </div>
+                    
+                    <div class="property-stats">
+                        <div class="stat"><i class="fas fa-bed"></i> 5 beds</div>
+                        <div class="stat"><i class="fas fa-bath"></i> 3 baths</div>
+                        <div class="stat"><i class="fas fa-ruler-combined"></i> 2,400 sqft</div>
+                    </div>
+                    
+                    <div class="property-description">
+                        Large single family home with pool. Needs complete renovation but has excellent potential. Large lot with room for expansion.
+                    </div>
+                    
+                    <button class="btn" style="width: 100%;">Express Interest</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2 class="form-title">Interested? Contact Us!</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your full name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Your email address">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="4" placeholder="Your message"></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Exclusive Cash Buyer Properties. All rights reserved.
+        <div class="disclaimer">Properties shown are subject to prior sale and availability.</div>
+    </footer>
+</body>
+</html>
